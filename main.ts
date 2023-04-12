@@ -324,83 +324,87 @@ function setLevelTileMap (level: number) {
         tiles.setTilemap(tilemap`level_5`)
     } else if (level == 7) {
         tiles.setTilemap(tilemap`level_6`)
+    } else if (level == 8) {
+        tiles.setCurrentTilemap(tilemap`level1`)
+    } else {
+    	
     }
     initializeLevel(level)
 }
 function initializeFlierAnimations () {
     flierFlying = animation.createAnimation(ActionKind.Flying, 100)
     flierFlying.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . f . f 4 4 4 5 4 5 4 4 4 f . f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . . . f 4 4 5 5 5 5 5 4 4 f . . 
-        . . . . f 4 5 4 4 4 5 4 f . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . b b b b . . . 
+        . . . . . . b b b d d d d b . . 
+        . . . . . . b d d d d d d b . . 
+        . . . . b b d d d d d b b d . . 
+        . . . . b d f d d d d f b d b . 
+        . . . . c d d f d d f b d b c . 
+        . . . b c c b 1 b b 1 d b c c . 
+        . . b b c c c 2 d d 2 c c c c . 
+        . b b d d d b b b b b b c c c c 
+        . c d d d f d d b d b b f c b c 
+        . c b d d d f b d b c f c b b c 
+        c b c c c c b f f f f b b b c c 
+        c c b b b d d b c c b b b b c c 
+        c c c c c c c c c b b b b c c . 
+        . c c c c b b b b b b b c c . . 
+        . . . . c c c c c c c c . . . . 
         `)
     flierFlying.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . . . f 4 4 4 5 4 5 4 4 4 f . . 
-        . . f 4 4 4 4 4 4 4 4 4 4 4 f . 
-        . . f 4 4 4 4 5 4 5 4 4 4 4 f . 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-        . f 4 f 4 4 5 5 5 5 5 4 4 f 4 f 
-        . f f . f 4 5 4 4 4 5 4 f . f f 
-        . f . . . f f f f f f f . . . f 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . b b b b . . . 
+        . . . . . . b b b d d d d b . . 
+        . . . . . . b d d d d d d b . . 
+        . . . . b b d d d d d b b d . . 
+        . . . . b d f d d d d f b d b . 
+        . . . . c d d f d d f b d b c . 
+        . . . b c c b 1 b b 1 d b c c . 
+        . . b b c c c 2 d d 2 c c c c . 
+        . b b d d d b b b b b b c c c c 
+        . c d d d f d d b d b b f c b c 
+        . c b d d d f b d b c f c b b c 
+        c b c c c c b f f f f b b b c c 
+        c c b b b d d b c c b b b b c c 
+        c c c c c c c c c b b b b c c . 
+        . c c c c b b b b b b b c c . . 
+        . . . . c c c c c c c c . . . . 
         `)
     flierFlying.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . f . f 4 4 4 5 4 5 4 4 4 f . f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . . . f 4 4 5 5 5 5 5 4 4 f . . 
-        . . . . f 4 5 4 4 4 5 4 f . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . b b b b . . . 
+        . . . . . . b b b d d d d b . . 
+        . . . . . . b d d d d d d b . . 
+        . . . . b b d d d d d b b d . . 
+        . . . . b d f d d d d f b d b . 
+        . . . . c d d f d d f b d b c . 
+        . . . b c c b 1 b b 1 d b c c . 
+        . . b b c c c 2 d d 2 c c c c . 
+        . b b d d d b b b b b b c c c c 
+        . c d d d f d d b d b b f c b c 
+        . c b d d d f b d b c f c b b c 
+        c b c c c c b f f f f b b b c c 
+        c c b b b d d b c c b b b b c c 
+        c c c c c c c c c b b b b c c . 
+        . c c c c b b b b b b b c c . . 
+        . . . . c c c c c c c c . . . . 
         `)
     flierIdle = animation.createAnimation(ActionKind.Idle, 100)
     flierIdle.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . f 4 4 4 4 4 4 4 f . . . 
-        . . . f 4 5 5 4 4 4 5 5 4 f . . 
-        . f . f 4 4 4 5 4 5 4 4 4 f . f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-        . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-        . . . f 4 4 5 5 5 5 5 4 4 f . . 
-        . . . . f 4 5 4 4 4 5 4 f . . . 
-        . . . . . f f f f f f f . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . b b b b . . . 
+        . . . . . . b b b d d d d b . . 
+        . . . . . . b d d d d d d b . . 
+        . . . . b b d d d d d b b d . . 
+        . . . . b d f d d d d f b d b . 
+        . . . . c d d f d d f b d b b . 
+        . . . b c c b 1 b b 1 d b c c . 
+        . . b b c c c 2 d d 2 c c c c . 
+        . b b d d d b b b b b b c c c c 
+        . c d d d f d d b d b b f c b c 
+        . c b d d d f b d b c f c b b c 
+        c b c c c c b f f f f b b b c c 
+        c c b b b d d b c c b b b b c c 
+        c c c c c c c c c b b b b c c . 
+        . c c c c b b b b b b b c c . . 
+        . . . . c c c c c c c c . . . . 
         `)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
