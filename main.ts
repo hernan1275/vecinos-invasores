@@ -307,13 +307,12 @@ function animateIdle () {
         `)
 }
 function setLevelTileMap (level: number) {
-    clearGame()
     if (level == 0) {
-        tiles.setTilemap(tilemap`level`)
+        tiles.setCurrentTilemap(tilemap`level1`)
     } else if (level == 1) {
-        tiles.setTilemap(tilemap`level_0`)
+    	
     } else if (level == 2) {
-        tiles.setTilemap(tilemap`level_1`)
+    	
     } else if (level == 3) {
         tiles.setTilemap(tilemap`level_2`)
     } else if (level == 4) {
@@ -325,11 +324,20 @@ function setLevelTileMap (level: number) {
     } else if (level == 7) {
         tiles.setTilemap(tilemap`level_6`)
     } else if (level == 8) {
-        tiles.setCurrentTilemap(tilemap`level1`)
-    } else {
-    	
+        tiles.setTilemap(tilemap`level_6`)
+    } else if (level == 9) {
+        tiles.setCurrentTilemap(tilemap`level2`)
+    } else if (level == 10) {
+        tiles.setCurrentTilemap(tilemap`level4`)
+    } else if (level == 11) {
+        tiles.setCurrentTilemap(tilemap`level5`)
+    } else if (level == 12) {
+        tiles.setCurrentTilemap(tilemap`level6`)
+    } else if (level == 13) {
+        tiles.setCurrentTilemap(tilemap`level7`)
     }
     initializeLevel(level)
+    clearGame()
 }
 function initializeFlierAnimations () {
     flierFlying = animation.createAnimation(ActionKind.Flying, 100)
