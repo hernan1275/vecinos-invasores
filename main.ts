@@ -677,6 +677,10 @@ function animateJumps () {
             `)
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
+    music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
+    info.changeLifeBy(-1)
+})
 function animateCrouch () {
     mainCrouchLeft = animation.createAnimation(ActionKind.CrouchLeft, 100)
     animation.attachAnimation(hero, mainCrouchLeft)
@@ -826,7 +830,7 @@ function createPlayer (player2: Sprite) {
     scene.cameraFollowSprite(player2)
     controller.moveSprite(player2, 100, 0)
     player2.z = 5
-    info.setLife(3)
+    info.setLife(5)
     info.setScore(0)
 }
 function initializeLevel (level: number) {
