@@ -755,22 +755,22 @@ function createEnemies () {
     // enemy that moves back and forth
     for (let value5 of tiles.getTilesByType(assets.tile`tile4`)) {
         bumper = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . 6 . . . . . . 9 . . . . . 
+            . . 9 . 9 . . . . 6 . 6 . . . . 
+            . . 9 . 9 . . . . 6 . 6 . . . . 
+            . . 9 . 9 6 . . . 6 . 6 . . . . 
+            . . 9 6 f 6 9 6 9 f 9 6 . . . . 
+            . . 9 6 9 f 9 6 f 6 9 6 . . . . 
+            . . 9 6 9 1 9 6 1 6 9 6 . f . . 
+            . f 9 6 9 2 9 6 2 6 9 6 . . f . 
+            f . 9 6 9 6 9 6 9 6 9 6 . . f . 
+            f . 9 6 9 6 9 6 9 6 9 6 . . . . 
+            . . 9 f 9 6 9 6 9 6 f 6 . . . . 
+            . . 9 6 f 6 9 6 9 f 9 6 . . . . 
+            . . 9 6 9 f f f f 6 9 6 . . . . 
+            . . 9 6 9 6 9 6 9 6 9 6 . . . . 
+            . . . . f . . . . . f . . . . . 
+            . . . f f . . . . f f . . . . . 
             `, SpriteKind.Bumper)
         tiles.placeOnTile(bumper, value5)
         tiles.setTileAt(value5, assets.tile`tile0`)
@@ -784,22 +784,22 @@ function createEnemies () {
     // enemy that flies at player
     for (let value6 of tiles.getTilesByType(assets.tile`tile7`)) {
         flier = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . f f f f f f f . . . . 
-            . . . . f 4 4 4 4 4 4 4 f . . . 
-            . . . f 4 5 5 4 4 4 5 5 4 f . . 
-            . f . f 4 4 4 5 4 5 4 4 4 f . f 
-            . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-            . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-            . f 4 4 4 4 4 5 4 5 4 4 4 4 4 f 
-            . f f 4 4 4 4 4 4 4 4 4 4 4 f f 
-            . . . f 4 4 5 5 5 5 5 4 4 f . . 
-            . . . . f 4 5 4 4 4 5 4 f . . . 
-            . . . . . f f f f f f f . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . b b b b . . . 
+            . . . . . . b b b d d d d b . . 
+            . . . . . . b d d d d d d b . . 
+            . . . . b b d d d d d b b d . . 
+            . . . . b d f d d d d f b d b . 
+            . . . . c d d f d d f b d b c . 
+            . . . b c c b 1 b b 1 d b c c . 
+            . . b b c c c 2 d d 2 c c c c . 
+            . b b d d d b b b b b b c c c c 
+            . c d d d f d d b d b b f c b c 
+            . c b d d d f b d b c f c b b c 
+            c b c c c c b f f f f b b b c c 
+            c c b b b d d b c c b b b b c c 
+            c c c c c c c c c b b b b c c . 
+            . c c c c b b b b b b b c c . . 
+            . . . . c c c c c c c c . . . . 
             `, SpriteKind.Flier)
         tiles.placeOnTile(flier, value6)
         tiles.setTileAt(value6, assets.tile`tile0`)
