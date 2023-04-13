@@ -1045,7 +1045,7 @@ scene.setBackgroundImage(img`
     `)
 initializeAnimations()
 createPlayer(hero)
-levelCount = 8
+levelCount = 30
 currentLevel = 0
 setLevelTileMap(currentLevel)
 giveIntroduction()
