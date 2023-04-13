@@ -110,9 +110,6 @@ function giveIntroduction () {
     showInstruction("vecinos Invasores")
     showInstruction("colecta manzanas y derrota enemigos")
 }
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    attemptJump()
-})
 function initializeCoinAnimation () {
     coinAnimation = animation.createAnimation(ActionKind.Idle, 200)
     coinAnimation.addAnimationFrame(img`
@@ -244,7 +241,7 @@ function initializeCoinAnimation () {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     otherSprite.destroy(effects.trail, 250)
-    otherSprite.y += -3
+    otherSprite.x += -3
     info.changeScoreBy(3)
     music.baDing.play()
 })
@@ -307,10 +304,11 @@ function animateIdle () {
         `)
 }
 function setLevelTileMap (level: number) {
+    initializeLevel(level)
     if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`level1`)
+        tiles.setTilemap(tilemap`level_0`)
     } else if (level == 1) {
-    	
+        tiles.setCurrentTilemap(tilemap`level1`)
     } else if (level == 2) {
     	
     } else if (level == 3) {
@@ -336,7 +334,6 @@ function setLevelTileMap (level: number) {
     } else if (level == 13) {
         tiles.setCurrentTilemap(tilemap`level7`)
     }
-    initializeLevel(level)
     clearGame()
 }
 function initializeFlierAnimations () {
@@ -415,9 +412,6 @@ function initializeFlierAnimations () {
         . . . . c c c c c c c c . . . . 
         `)
 }
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    attemptJump()
-})
 function animateRun () {
     mainRunLeft = animation.createAnimation(ActionKind.RunningLeft, 100)
     animation.attachAnimation(hero, mainRunLeft)
@@ -693,6 +687,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
     music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
     info.changeLifeBy(-1)
 })
+ControllerButtonEvent.Pressed.onEvent(controller.up, function () {
+    attemptJump()
+})
 function animateCrouch () {
     mainCrouchLeft = animation.createAnimation(ActionKind.CrouchLeft, 100)
     animation.attachAnimation(hero, mainCrouchLeft)
@@ -821,11 +818,6 @@ function createEnemies () {
         animation.attachAnimation(flier, flierIdle)
     }
 }
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (!(hero.isHittingTile(CollisionDirection.Bottom))) {
-        hero.vy += 80
-    }
-})
 function showInstruction (text: string) {
     game.showLongText(text, DialogLayout.Bottom)
     music.baDing.play()
